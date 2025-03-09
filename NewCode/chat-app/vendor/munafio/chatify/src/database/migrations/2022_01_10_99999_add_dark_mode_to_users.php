@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddAvatarToUsers extends Migration
+class AddDarkModeToUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,9 @@ class AddAvatarToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'avatar')) {
-                $table->string('avatar')->nullable()->default(null)->change();
+            // if not exist, add the new column
+            if (!Schema::hasColumn('users', 'dark_mode')) {
+                $table->boolean('dark_mode')->default(0);
             }
         });
     }
@@ -28,9 +29,7 @@ class AddAvatarToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            if (Schema::hasColumn('users', 'avatar')) {
-                $table->string('avatar')->default(config('chatify.user_avatar.default'))->change();
-            }
+            $table->dropColumn('dark_mode');
         });
     }
 }

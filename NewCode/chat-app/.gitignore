@@ -1,11 +1,11 @@
 # /.phpunit.cache
- /public/build
+# /public/build
 # /public/hot
 # /public/storage
 # /storage/*.key
 # /storage/pail
-/vendor
-/.env
+#vendor
+#.env
 # .env.backup
 # .env.production
 # .phpactor.json
