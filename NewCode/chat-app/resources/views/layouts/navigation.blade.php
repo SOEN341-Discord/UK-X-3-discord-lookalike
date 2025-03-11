@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-white border-r border-gray-100 fixed inset-y-0 left-0 w-64 h-screen overflow-y-auto">
+<nav x-data="{ showChannels: {{ request()->is('server*') ? 'true' : 'false' }} }" class="bg-white border-r border-gray-100 fixed inset-y-0 left-0 w-64 h-screen overflow-y-auto">
     <div class="flex flex-col bg-gray-800 text-white h-full">
         <!-- Logo -->
         <div class="flex p-4">
@@ -10,12 +10,29 @@
         <!-- Navigation Links -->
         <div class="flex flex-col justify-between">
             <div class="space-y-2">
-                <!-- Server Link -->
-                <x-nav-link :href="route('server')" :active="request()->routeIs('server')" class="block p-4 hover:bg-white-700 focus:outline-none">
+                <!-- Server Link with Dropdown -->
+                <button 
+                    @click="showChannels = !showChannels; window.location.href = '{{ route('server') }}'"
+                    class="block w-full text-left p-4 hover:bg-gray-700 focus:outline-none"
+                >
                     {{ __('Server') }}
-                </x-nav-link>
+                </button>
+
+                <!-- Channels List (Visible only on /server) -->
+                @if(isset($channels) && count($channels) > 0)
+                <div x-show="showChannels" class="block pl-6 space-y-2">
+                    @foreach($channels as $channel)
+                    <div class="block">
+                        <x-nav-link :href="route('server.channel', $channel->id)" class="block p-2 text-white hover:bg-gray-700 w-full focus:outline-none">
+                            {{ $channel->name }}
+                        </x-nav-link>
+                    </div>  
+                    @endforeach
+                </div>
+                @endif
+
                 <!-- Private Messages Link -->
-                <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')" class="block p-4 hover:bg-white-700 focus:outline-none">
+                <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')" class="block p-4 hover:bg-gray-700 focus:outline-none">
                     {{ __('Private Messages') }}
                 </x-nav-link>
             </div>

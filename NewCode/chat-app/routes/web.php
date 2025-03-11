@@ -46,7 +46,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 // Server route
 Route::get('/server', [ServerController::class, 'index'])->name('server');
-
+Route::get('/server/{channel}', [ServerController::class, 'showChannel'])->name('server.channel');
 
 
 require __DIR__.'/auth.php';
