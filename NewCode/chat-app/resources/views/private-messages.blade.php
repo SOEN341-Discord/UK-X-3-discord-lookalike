@@ -54,7 +54,9 @@
   //Broadcast messages
   $("form").submit(function (event) {
     event.preventDefault();
-
+    
+    let conversation_id = 1;
+    
     $.ajax({
       url:     "/broadcast",
       method:  'POST',

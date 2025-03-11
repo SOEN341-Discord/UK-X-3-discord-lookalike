@@ -26,6 +26,21 @@ class PrivateMessagesController extends Controller
 
     public function broadcast(Request $request)
     {
+        $conversation_id = 1;
+
+        $validated = $request->validate([
+            'message' => 'required|string',
+            //'conversation_id' => 'required|exists:conversations,id',
+        ]);
+
+        // Save the message in the database
+        $message = Message::create([
+            'user_id' => Auth::id(),  // Get the authenticated user's ID
+            //'conversation_id' => $validated['conversation_id'],
+            'conversation_id' => $conversation_id,
+            'content' => $validated['message'],
+        ]);
+
         broadcast(new MessageBroadcast($request->get('message')))->toOthers();
         return view('message.broadcast', ['message' =>$request->get('message')]);
     }
