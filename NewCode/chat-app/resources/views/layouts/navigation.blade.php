@@ -22,17 +22,23 @@
                 @if(isset($channels) && count($channels) > 0)
                 <div x-show="showChannels" class="block pl-6 space-y-2">
                     @foreach($channels as $channel)
-                    <div class="block">
+                    <div class="block hover:text-white">
                         <x-nav-link :href="route('server.channel', $channel->id)" class="block p-2 text-white hover:bg-gray-700 w-full focus:outline-none">
                             {{ $channel->name }}
                         </x-nav-link>
                     </div>  
                     @endforeach
+                 <!-- Button to navigate to create channel page -->
+                 <a href="{{ route('showCreateForm') }}" class="block p-4 text-white text-center rounded-md hover:bg-gray-700 focus:outline-none"">
+                    Create Channel
+                </a>
                 </div>
                 @endif
 
+               
+
                 <!-- Private Messages Link -->
-                <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')" class="block p-4 hover:bg-gray-700 focus:outline-none">
+                <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')" class="block p-4 text-white text-center rounded-md hover:bg-gray-700 focus:outline-none">
                     {{ __('Private Messages') }}
                 </x-nav-link>
             </div>
