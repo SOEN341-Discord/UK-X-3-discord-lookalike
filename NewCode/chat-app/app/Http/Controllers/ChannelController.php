@@ -9,7 +9,7 @@ class ChannelController extends Controller
 {
     public function index()
     {
-        $channels = Channel::all();
+        $channels = Channel::where('type', 'group')->get();
         return view('channels.index', compact('channels'));
     }
 
@@ -18,19 +18,24 @@ class ChannelController extends Controller
         return view('channels.create');
     }
 
+    public function showCreateForm()
+    {
+        return view('create-channel');
+    }
+
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|unique:channels',
-            'description' => 'nullable|string',
         ]);
 
         Channel::create([
             'name' => $request->name,
             'description' => $request->description,
+            'type' => 'group',
         ]);
 
-        return redirect()->route('channels.index')->with('success', 'Channel created successfully!');
+        return redirect()->route('server')->with('success', 'Channel created successfully!');
     }
 
     public function destroy(Channel $channel)
