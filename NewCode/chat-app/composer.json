@@ -11,7 +11,6 @@
     "require": {
         "php": "^8.2",
         "laravel/framework": "^11.31",
-        "laravel/reverb": "^1.4",
         "laravel/tinker": "^2.9",
         "munafio/chatify": "^1.6",
         "pusher/pusher-php-server": "^7.2"

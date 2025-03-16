@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\GroupMessagesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChannelController;
@@ -20,6 +21,14 @@ Route::get('/dashboard', function () {
 
 // Group routes that require authentication
 Route::middleware('auth')->group(function () {
+
+    Route::prefix('group/{groupId}')->group(function () {
+        Route::get('/', [GroupMessagesController::class, 'index']);
+        Route::post('/broadcast', [GroupMessagesController::class, 'broadcast']);
+        Route::post('/receive', [GroupMessagesController::class, 'receive']);
+        Route::post('/store', [GroupMessagesController::class, 'store']);
+    });
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

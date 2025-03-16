@@ -1,0 +1,3 @@
+<div class="message">
+    <strong>{{ $message->user->name }}:</strong> {{ $message->content }}
+</div>
