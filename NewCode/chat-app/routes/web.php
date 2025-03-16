@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\PrivateMessagesController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -44,6 +45,10 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::delete('/channels/{channel}', [ChannelController::class, 'destroy'])->name('channels.destroy');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::post('/solve-riddle', [UserController::class, 'solveRiddle'])->name('solve.riddle');
+    Route::get('/solve-riddle', [UserController::class, 'solveForm'])->name('solve.riddle.form');
+});
 // Server route
 Route::get('/server', [ServerController::class, 'index'])->name('server');
 

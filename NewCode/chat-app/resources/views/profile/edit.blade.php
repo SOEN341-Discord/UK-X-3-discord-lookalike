@@ -3,7 +3,7 @@
  @section('content')
      <div class="flex-grow p-6 ml-64">
          <div class="container">
-                 <h1>{{ __('Edit Profile') }}</h1>
+                 <h1 class="text-2xl pb-5">{{ __('Edit Profile') }}</h1>
  
                  <form method="POST" action="{{ route('profile.update') }}">
                      @csrf
@@ -23,12 +23,22 @@
                          <x-input-error :messages="$errors->get('email')" class="mt-2" />
                      </div>
  
-                     <!-- User Role
+                     <!-- User Role -->
                      <div class="mt-4">
-                         <x-input-label for="role" :value="__('Get Admin Rights')" />
-                         <x-text-input id="role" class="block mt-1 w-1/2" type="text" name="role" :value="old('email', $user->email)" required />
-                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                     </div> -->
+                        <x-input-label for="role" :value="__('Role Status')" />
+
+                        <p class="mt-2 text-m {{ $user->is_admin ? 'text-green-600' : 'text-gray-600' }}">
+                            {{ $user->is_admin ? __('Admin') : __('Member') }}
+                        </p>
+
+                        @if ($user->is_member)
+                            <a class="underline text-sm text-red-300 hover:text-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('solve.riddle') }}">
+                                {{ __('Want to become an admin? Come solve this problem') }}
+                            </a>
+                        @endif
+
+                    </div>
+
  
                      <!-- Submit Button -->
                      <div class="mt-4">
