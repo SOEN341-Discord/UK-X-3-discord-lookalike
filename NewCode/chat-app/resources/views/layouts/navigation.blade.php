@@ -38,9 +38,13 @@
                
 
                 <!-- Private Messages Link -->
-                <x-nav-link :href="route('chatify')" :active="request()->routeIs('chatify')" class="block p-4 text-white text-center rounded-md hover:bg-gray-700 focus:outline-none">
+                <button 
+                    @click="window.location.href = '{{ route('chatify') }}'"
+                    class="block w-full text-left p-4 hover:bg-gray-700 focus:outline-none {{ request()->routeIs('chatify') ? 'bg-gray-700' : '' }}"
+                >
                     {{ __('Private Messages') }}
-                </x-nav-link>
+                </button>
+
             </div>
 
             <!-- Profile Dropdown -->
