@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\PrivateMessagesController;
+use App\Http\Controllers\CustomMessagesController;
+use App\Models\Group;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,6 +19,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/chat', function () {
+    return view('chat', ['groups' => Group::all()]);
+})->middleware('auth');
+
+Route::get('/chatify/messages/{groupId}', function ($groupId) {
+    return Message::where('group_id', $groupId)->orderBy('created_at', 'asc')->get();
+})->middleware('auth');
+
 // Group routes that require authentication
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -25,6 +35,7 @@ Route::middleware('auth')->group(function () {
 
     // Channel routes
     Route::get('/channels', [ChannelController::class, 'index'])->name('channels.index');
+    Route::post('/chatify/send', [CustomMessagesController::class, 'send'])->name('chatify.send');
 });
 
 // Message routes for private messages

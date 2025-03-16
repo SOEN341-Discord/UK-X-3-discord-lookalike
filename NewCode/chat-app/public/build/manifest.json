@@ -1,13 +1,29 @@
 {
+  "_echo-CWmjydjp.js": {
+    "file": "assets/echo-CWmjydjp.js",
+    "name": "echo"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-NPc9ZpP7.css",
+    "file": "assets/app-dQZWcAJx.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-D6cxl9_G.js",
+    "file": "assets/app-CKFYStUq.js",
     "name": "app",
     "src": "resources/js/app.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_echo-CWmjydjp.js"
+    ]
+  },
+  "resources/js/chat.js": {
+    "file": "assets/chat-DpHJKcZx.js",
+    "name": "chat",
+    "src": "resources/js/chat.js",
+    "isEntry": true,
+    "imports": [
+      "_echo-CWmjydjp.js"
+    ]
   }
 }

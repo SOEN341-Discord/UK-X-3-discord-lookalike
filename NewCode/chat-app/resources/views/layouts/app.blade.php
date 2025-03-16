@@ -7,6 +7,9 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <meta name="user-id" content="{{ auth()->check() ? auth()->id() : '' }}">
+
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
