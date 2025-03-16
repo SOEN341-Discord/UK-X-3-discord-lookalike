@@ -11,7 +11,7 @@
 use Illuminate\Support\Facades\Route;
 
 /*
-* This is the main app route [Chatify Messenger]
+* This is the main app route [Messenger]
 */
 Route::get('/', 'MessagesController@index')->name(config('chatify.routes.prefix'));
 
