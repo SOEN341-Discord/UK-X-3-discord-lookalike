@@ -1,31 +1,34 @@
 <?php
-
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
+use Illuminate\Broadcasting\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Illuminate\Queue\SerializesModels;
+
 use App\Models\Message;
 
 class GroupMessageSent implements ShouldBroadcast
 {
-    use SerializesModels;
+    use InteractsWithSockets, SerializesModels;
 
     public $message;
+    public $groupId;
 
-    public function __construct(Message $message)
+    public function __construct(Message $message, $groupId)
     {
         $this->message = $message;
+        $this->groupId = $groupId;
     }
 
     public function broadcastOn()
     {
-        return new PresenceChannel('group.'.$this->message->group_id);
+        return new PresenceChannel('group-chat.' . $this->groupId);
     }
 
-    public function broadcastWith()
+    public function broadcastAs()
     {
-        return ['message' => $this->message];
+        return 'message.sent';
     }
 }

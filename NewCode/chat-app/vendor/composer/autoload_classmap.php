@@ -6,8 +6,10 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Events\\GroupMessageSent' => $baseDir . '/app/Events/GroupMessageSent.php',
     'App\\Events\\MessageBroadcast' => $baseDir . '/app/Events/MessageBroadcast.php',
     'App\\Events\\MessageSent' => $baseDir . '/app/Events/MessageSent.php',
+    'App\\Events\\PrivateMessageSent' => $baseDir . '/app/Events/PrivateMessageSent.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\Auth\\AuthenticatedSessionController' => $baseDir . '/app/Http/Controllers/Auth/AuthenticatedSessionController.php',
     'App\\Http\\Controllers\\Auth\\ConfirmablePasswordController' => $baseDir . '/app/Http/Controllers/Auth/ConfirmablePasswordController.php',
@@ -20,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerifyEmailController' => $baseDir . '/app/Http/Controllers/Auth/VerifyEmailController.php',
     'App\\Http\\Controllers\\ChannelController' => $baseDir . '/app/Http/Controllers/ChannelController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\CustomMessagesController' => $baseDir . '/app/Http/Controllers/CustomMessagesController.php',
     'App\\Http\\Controllers\\MessageController' => $baseDir . '/app/Http/Controllers/MessageController.php',
     'App\\Http\\Controllers\\PrivateMessagesController' => $baseDir . '/app/Http/Controllers/PrivateMessagesController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
@@ -30,6 +33,8 @@ return array(
     'App\\Models\\ChFavorite' => $baseDir . '/app/Models/ChFavorite.php',
     'App\\Models\\ChMessage' => $baseDir . '/app/Models/ChMessage.php',
     'App\\Models\\Channel' => $baseDir . '/app/Models/Channel.php',
+    'App\\Models\\Group' => $baseDir . '/app/Models/Group.php',
+    'App\\Models\\GroupMember' => $baseDir . '/app/Models/GroupMember.php',
     'App\\Models\\Message' => $baseDir . '/app/Models/Message.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
