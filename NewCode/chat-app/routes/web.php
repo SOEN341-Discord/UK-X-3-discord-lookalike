@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\PrivateMessagesController;
-use App\Http\Controllers\GroupMessagesController;
+use App\Http\Controllers\GroupMessageController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 
@@ -65,9 +65,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('groups', GroupController::class)->except(['edit', 'update',]);
 
     // Routes for group messages
-    Route::get('groups/{group}/messages', [MessageController::class, 'index'])
+    Route::get('groups/{group}/messages', [GroupMessageController::class, 'index'])
          ->name('groups.messages.index');
-    Route::post('groups/{group}/messages', [MessageController::class, 'store'])
+    Route::post('groups/{group}/messages', [GroupMessageController::class, 'store'])
          ->name('groups.messages.store');
 });
 
