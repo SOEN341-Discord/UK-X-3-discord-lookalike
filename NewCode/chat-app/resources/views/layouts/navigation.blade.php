@@ -20,19 +20,24 @@
 
                 <!-- Channels List (Visible only on /server) -->
                 @if(isset($channels) && count($channels) > 0)
-                <div x-show="showChannels" class="block pl-6 space-y-2">
-                    @foreach($channels as $channel)
-                    <div class="block hover:text-white">
-                        <x-nav-link :href="route('server.channel', $channel->id)" class="block p-2 text-white hover:bg-gray-700 w-full focus:outline-none">
-                            {{ $channel->name }}
-                        </x-nav-link>
-                    </div>  
-                    @endforeach
-                 <!-- Button to navigate to create channel page -->
-                 <a href="{{ route('showCreateForm') }}" class="block p-4 text-white text-center rounded-md hover:bg-gray-700 focus:outline-none"">
+                    <div x-show="showChannels" class="block pl-5 space-y-1">
+                        @foreach($channels as $channel)
+                        <div class="block">
+                            <button 
+                            @click="window.location.href = '{{ route('server.channel', $channel->id) }}'"
+                            class="block w-full text-left p-1 hover:bg-gray-700 focus:outline-none}}"
+                            >
+                                {{ $channel->name }}
+                            </button>
+                        </div>  
+                        @endforeach
+                    </div>
+                    @if( Auth::user()->is_admin )
+                    <!-- Button to navigate to create channel page -->
+                    <a href="{{ route('showCreateForm') }}" class="block p-3 text-white hover:bg-gray-700 w-full focus:outline-none"">
                     Create Channel
-                </a>
-                </div>
+                    </a>
+                    @endif
                 @endif
 
                
