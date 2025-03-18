@@ -17,6 +17,7 @@ class ServerController extends Controller
     public function showChannel($channelId)
     {
         $channel = Channel::findOrFail($channelId);
-        return view('channel', compact('channel'));
+        $channels = Channel::all();
+        return view('channel', compact('channel', 'channels'));
     }
 }
