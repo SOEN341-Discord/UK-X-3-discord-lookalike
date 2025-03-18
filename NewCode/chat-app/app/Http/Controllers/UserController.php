@@ -20,7 +20,6 @@ class UserController extends Controller
 
     }
 
-
     public function solveRiddle(Request $request)
     {
         $riddleAnswer = $request->input('riddle_answer');

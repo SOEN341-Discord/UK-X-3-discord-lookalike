@@ -56,6 +56,7 @@ Route::get('/server', [ServerController::class, 'index'])->name('server');
 //create channel routes
 Route::get('/server/create-channel', [ChannelController::class, 'showCreateForm'])->name('showCreateForm');
 Route::post('/server/create-channel', [ChannelController::class, 'store'])->name('server.create-channel');
+Route::get('/server/manage/{channel}', [ChannelController::class, 'manage'])->name('channels.manage');
 
 Route::get('/server/{channel}', [ServerController::class, 'showChannel'])->name('server.channel');
 

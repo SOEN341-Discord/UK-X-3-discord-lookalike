@@ -50,6 +50,14 @@ class ChannelController extends Controller
     {
         $channels = Channel::all();
         $channel = Channel::findOrFail($channelId);
-        return view('channel', compact('channel', 'channels'));
+        return view('channels.channel', compact('channel', 'channels'));
+    }
+
+    // This might be worng, i'll fix it later
+    public function manage($channelId)
+    {
+        $channels = Channel::all();
+        $channel = Channel::findOrFail($channelId);
+        return view('channels.manage', compact('channel', 'channels'));
     }
 }

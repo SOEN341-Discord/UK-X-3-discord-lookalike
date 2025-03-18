@@ -18,6 +18,6 @@ class ServerController extends Controller
     {
         $channel = Channel::findOrFail($channelId);
         $channels = Channel::all();
-        return view('channel', compact('channel', 'channels'));
+        return view('channels.channel', compact('channel', 'channels'));
     }
 }

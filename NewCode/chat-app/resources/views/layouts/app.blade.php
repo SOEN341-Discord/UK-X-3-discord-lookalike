@@ -20,9 +20,10 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
-
             <!-- Page Content -->
             <main>
+                @yield('title')
+
                 @yield('content')
             </main>
 
