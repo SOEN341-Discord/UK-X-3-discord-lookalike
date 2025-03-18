@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\PrivateMessagesController;
+use App\Http\Controllers\GroupMessagesController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -57,5 +59,16 @@ Route::get('/server/create-channel', [ChannelController::class, 'showCreateForm'
 Route::post('/server/create-channel', [ChannelController::class, 'store'])->name('server.create-channel');
 
 Route::get('/server/{channel}', [ServerController::class, 'showChannel'])->name('server.channel');
+
+Route::middleware(['auth'])->group(function () {
+    // Resourceful routes for groups (only index, create, store, and show in this example)
+    Route::resource('groups', GroupController::class)->except(['edit', 'update',]);
+
+    // Routes for group messages
+    Route::get('groups/{group}/messages', [MessageController::class, 'index'])
+         ->name('groups.messages.index');
+    Route::post('groups/{group}/messages', [MessageController::class, 'store'])
+         ->name('groups.messages.store');
+});
 
 require __DIR__.'/auth.php';
