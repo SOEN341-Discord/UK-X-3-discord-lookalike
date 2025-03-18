@@ -1,4 +1,7 @@
-<nav x-data="{ showChannels: {{ request()->is('server*') ? 'true' : 'false' }} }" class="bg-white border-r border-gray-100 fixed inset-y-0 left-0 w-64 h-screen overflow-y-auto">
+<nav 
+    x-data="{ showChannels: {{ request()->is('server*') ? 'true' : 'false' }} }"
+    class="bg-white border-r border-gray-100 fixed inset-y-0 left-0 w-64 h-screen overflow-y-auto"
+>
     <div class="flex flex-col bg-gray-800 text-white h-full">
         <!-- Logo -->
         <div class="flex p-4">
@@ -8,38 +11,45 @@
         </div>
 
         <!-- Navigation Links -->
-        <div class="flex flex-col justify-between">
+        <div 
+        class="flex flex-col justify-between">
             <div class="space-y-2">
                 <!-- Server Link with Dropdown -->
-                <button 
-                    @click="showChannels = !showChannels; window.location.href = '{{ route('server') }}'"
-                    class="block w-full text-left p-4 hover:bg-gray-700 focus:outline-none"
-                >
-                    {{ __('Server') }}
-                </button>
+                    <button 
+                        @click="window.location.href = '{{ route('server') }}'"
+                        class="block w-full text-left p-4 hover:bg-gray-700 focus:outline-none"
+                    >
+                        {{ __('Server') }}
+                    </button>
 
-                <!-- Channels List (Visible only on /server) -->
-                @if(isset($channels) && count($channels) > 0)
-                <div x-show="showChannels" class="block pl-6 space-y-2">
-                    @foreach($channels as $channel)
-                    <div class="block hover:text-white">
-                        <x-nav-link :href="route('server.channel', $channel->id)" class="block p-2 text-white hover:bg-gray-700 w-full focus:outline-none">
-                            {{ $channel->name }}
-                        </x-nav-link>
-                    </div>  
-                    @endforeach
-                 <!-- Button to navigate to create channel page -->
-                 <a href="{{ route('showCreateForm') }}" class="block p-4 text-white text-center rounded-md hover:bg-gray-700 focus:outline-none"">
-                    Create Channel
-                </a>
-                </div>
-                @endif
-
-               
+                    <!-- Channels List (Visible only on /server) -->
+                    @if(isset($channels) && count($channels) > 0)
+                        <div x-show="showChannels" class="block pl-5 space-y-1">
+                            @foreach($channels as $channel)
+                            <div class="block">
+                                <button 
+                                @click="window.location.href = '{{ route('server.channel', $channel->id) }}'"
+                                class="block w-full text-left p-1 hover:bg-gray-700 focus:outline-none"
+                                >
+                                    {{ $channel->name }}
+                                </button>
+                            </div>  
+                            @endforeach
+                        </div>
+                        @if( Auth::user()->is_admin )
+                        <!-- Button to navigate to create channel page -->
+                        <button
+                        @click="window.location.href = '{{ route('showCreateForm') }}'"
+                        class="block w-full text-left p-4 hover:bg-gray-700 focus:outline-none"
+                        >
+                            Create Channel
+                        </button>
+                        @endif
+                    @endif
 
                 <!-- Private Messages Link -->
                 <button 
-                    @click="window.location.href = '{{ route('chatify') }}'"
+                    @click="showChannels = false; window.location.href = '{{ route('chatify') }}'"
                     class="block w-full text-left p-4 hover:bg-gray-700 focus:outline-none {{ request()->routeIs('chatify') ? 'bg-gray-700' : '' }}"
                 >
                     {{ __('Private Messages') }}

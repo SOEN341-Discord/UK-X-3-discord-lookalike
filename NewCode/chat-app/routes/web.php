@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/solve-riddle', [UserController::class, 'solveRiddle'])->name('solve.riddle');
     Route::get('/solve-riddle', [UserController::class, 'solveForm'])->name('solve.riddle.form');
 });
+
 // Server route
 Route::get('/server', [ServerController::class, 'index'])->name('server');
 
