@@ -23,4 +23,10 @@ class GroupMessageSent implements ShouldBroadcast
         // Broadcast on a public channel named after the group ID
         return new Channel('group.' . $this->message->group_id);
     }
+    
+    public function broadcastAs()
+    {
+        return 'GroupMessageSent';
+    }
+
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\GroupMessage;
 
 class Group extends Model
 {
@@ -16,6 +17,6 @@ class Group extends Model
 
     public function messages()
     {
-        return $this->hasMany(Message::class);
+        return $this->hasMany(GroupMessage::class);
     }
 }

@@ -23,7 +23,8 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
-        'is_member'
+        'is_member',
+        'profile_photo_path',
     ];
 
     public function isAdmin()

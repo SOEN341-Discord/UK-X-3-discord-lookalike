@@ -15,6 +15,29 @@
                          <x-text-input id="name" class="block mt-1 w-1/3" type="text" name="name" :value="old('name', $user->name)" required autofocus />
                          <x-input-error :messages="$errors->get('name')" class="mt-2" />
                      </div>
+
+                     <div class="container mx-auto p-4">
+    
+    <!-- Display current photo if available -->
+    @if (Auth::user()->profile_photo_path)
+        <div class="mb-4">
+            <img src="{{ asset('storage/' . Auth::user()->profile_photo_path) }}" alt="Profile Photo" class="h-24 w-24 object-cover rounded-full">
+        </div>
+    @endif
+
+    <!-- Form to upload a new photo -->
+    <form action="{{ route('profile.photo') }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="mb-4">
+            <label for="photo" class="block font-medium">Profile Photo</label>
+            <input type="file" name="photo" id="photo" class="mt-1">
+            @error('photo')
+                <p class="text-red-600 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Update Photo</button>
+    </form>
+</div>
  
                      <!-- Email Address -->
                      <div class="mt-4">

@@ -39,9 +39,26 @@ class GroupMessageController extends Controller
         'user_id'  => Auth::id(),
         'message'  => $request->message,
     ]);
-    // Broadcast the message event (to others, so the sender’s UI can be updated separately if needed)
     broadcast(new GroupMessageSent($message))->toOthers();
 
     return response()->json($message);
 }
+
+public function destroy(\App\Models\Group $group, \App\Models\GroupMessage $message)
+{
+    if (!auth()->user()->is_admin) {
+        abort(403, 'Unauthorized');
+    }
+
+    if ($message->group_id !== $group->id) {
+        abort(404, 'Message not found in this group');
+    }
+
+    $message->delete();
+
+    // Redirect back to the group chat or wherever appropriate
+    return redirect()->route('groups.show', $group->id)
+                     ->with('success', 'Message deleted.');
+}
+
 }

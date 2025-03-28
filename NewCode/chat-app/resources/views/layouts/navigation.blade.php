@@ -45,6 +45,13 @@
                     {{ __('Private Messages') }}
                 </button>
 
+                <button 
+                    @click="window.location.href = '{{route('groups.index')}}'"
+                    class="block w-full text-left p-4 hover:bg-gray-700 focus:outline-none {{ request()->routeIs('chatify') ? 'bg-gray-700' : '' }}"
+                >
+                    {{ __('Group Channels') }}
+                </button>
+
             </div>
 
             <!-- Profile Dropdown -->
