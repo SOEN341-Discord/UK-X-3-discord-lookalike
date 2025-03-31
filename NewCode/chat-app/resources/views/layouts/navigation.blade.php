@@ -68,20 +68,32 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
+                        <div class="flex items-center">
+                            @if (Auth::user()->profile_photo_path)
+                                <img src="{{ asset('storage/' . Auth::user()->profile_photo_path) }}"
+                                    alt="{{ Auth::user()->name }}'s profile picture"
+                                    class="h-8 w-8 rounded-full mr-2">
+                            @else
+                                <!-- Fallback image if no profile photo is set -->
+                                <img src="{{ asset('images/default-profile.png') }}"
+                                    alt="Default profile picture"
+                                    class="h-8 w-8 rounded-full mr-2">
+                            @endif
+
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ Auth::user()->name }}
+                            </x-dropdown-link>
+                        </div>
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                            onclick="event.preventDefault(); this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
+
                 </x-dropdown>
             </div>
         </div>
