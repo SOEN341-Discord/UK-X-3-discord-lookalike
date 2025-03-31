@@ -6,6 +6,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\ServerController;
 use App\Http\Controllers\PrivateMessagesController;
+use App\Http\Controllers\GroupMessageController;
+use App\Http\Controllers\GroupController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -23,6 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/profile/photo', [ProfileController::class, 'updatePhoto'])->name('profile.photo');
 
     // Channel routes
     Route::get('/channels', [ChannelController::class, 'index'])->name('channels.index');
@@ -58,5 +61,22 @@ Route::get('/server/create-channel', [ChannelController::class, 'showCreateForm'
 Route::post('/server/create-channel', [ChannelController::class, 'store'])->name('server.create-channel');
 
 Route::get('/server/{channel}', [ServerController::class, 'showChannel'])->name('server.channel');
+
+Route::middleware(['auth'])->group(function () {
+    // Resourceful routes for groups (only index, create, store, and show in this example)
+    Route::resource('groups', GroupController::class)->except(['edit', 'update',]);
+
+    // Routes for group messages
+    Route::get('groups/{group}/messages', [GroupMessageController::class, 'index'])
+         ->name('groups.messages.index');
+    Route::post('groups/{group}/messages', [GroupMessageController::class, 'store'])
+         ->name('groups.messages.store');
+});
+
+
+Route::delete('/groups/{group}/messages/{message}', [GroupMessageController::class, 'destroy'])
+    ->middleware('auth')
+    ->name('groups.messages.destroy');
+
 
 require __DIR__.'/auth.php';

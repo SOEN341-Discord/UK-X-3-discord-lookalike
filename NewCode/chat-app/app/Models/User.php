@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Group;
 
 class User extends Authenticatable
 {
@@ -22,7 +23,8 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
-        'is_member'
+        'is_member',
+        'profile_photo_path',
     ];
 
     public function isAdmin()
@@ -57,4 +59,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function groups()
+{
+    return $this->belongsToMany(Group::class);
+}
 }
