@@ -44,6 +44,11 @@ class GroupController extends Controller
             $group->users()->attach($request->user_ids);
         }
 
+        if ($request->expectsJson()) {
+            return response()->json($group, 201);
+        }
+    
+
         return redirect()->route('groups.show', $group->id)
                          ->with('success', 'Group created successfully!');
     }
@@ -73,4 +78,15 @@ class GroupController extends Controller
 
         return redirect()->route('groups.index')->with('success', 'Group deleted successfully.');
     }
+    
+    public function join(Group $group)
+{
+    $group->users()->syncWithoutDetaching(Auth::id());
+
+    if (request()->expectsJson()) {
+        return response()->json(['message' => 'Joined group'], 200);
+    }
+
+    return redirect()->route('groups.show', $group)->with('success', 'You joined the group!');
+}
 }

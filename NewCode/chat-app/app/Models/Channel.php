@@ -9,11 +9,16 @@ class Channel extends Model
 {
     use HasFactory;
 
-    protected $table = 'conversations';
-    protected $fillable = ['name', 'type'];
+    //protected $table = 'conversations';
+    protected $fillable = ['name', 'description'];
 
     public function messages()
     {
         return $this->hasMany(Message::class);
     }
+
+    public function users()
+{
+    return $this->belongsToMany(User::class, 'channel_user');
+}
 }

@@ -10,8 +10,10 @@ class ChannelController extends Controller
     public function index()
     {
         $channels = Channel::all();
-        $channel = Channel::where('type', 'group')->get();
-        return view('channels.index', compact('channel', 'channels'));
+        //$channel = Channel::where('type', 'group')->get();
+        return view('channels.index', compact('channels'));
+        //return view('channels.index', compact('channel', 'channels'));
+
     }
 
     public function create()
@@ -31,11 +33,15 @@ class ChannelController extends Controller
             'name' => 'required|string|unique:channels',
         ]);
 
-        Channel::create([
+        $channel = Channel::create([
             'name' => $request->name,
             'description' => $request->description,
-            'type' => 'group',
+            //'type' => 'group',
         ]);
+
+        if ($request->expectsJson()) {
+            return response()->json($channel, 201);
+        }
 
         return redirect()->route('server')->with('success', 'Channel created successfully!');
     }

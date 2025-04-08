@@ -71,6 +71,8 @@ Route::middleware(['auth'])->group(function () {
          ->name('groups.messages.index');
     Route::post('groups/{group}/messages', [GroupMessageController::class, 'store'])
          ->name('groups.messages.store');
+    Route::post('/groups', [GroupController::class, 'store']);
+    Route::post('/groups/{group}/join', [GroupController::class, 'join'])->name('groups.join');
 });
 
 
