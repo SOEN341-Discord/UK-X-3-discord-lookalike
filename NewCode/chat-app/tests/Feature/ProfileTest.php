@@ -1,5 +1,5 @@
 <?php
-/*
+
 use App\Models\User;
 
 test('profile page is displayed', function () {
@@ -83,4 +83,4 @@ test('correct password must be provided to delete account', function () {
 
     $this->assertNotNull($user->fresh());
 });
-*/
+

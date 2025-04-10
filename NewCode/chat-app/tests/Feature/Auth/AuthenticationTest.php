@@ -1,5 +1,5 @@
 <?php
-/*
+
 use App\Models\User;
 
 test('login screen can be rendered', function () {
@@ -39,4 +39,4 @@ test('users can logout', function () {
     $this->assertGuest();
     $response->assertRedirect('/');
 });
-*/
+
