@@ -1,0 +1,407 @@
+ ------ ------------------------------------------------------------------------------------------------------------------------- 
+  Line   app/Events/MessageBroadcast.php                                                                                          
+ ------ ------------------------------------------------------------------------------------------------------------------------- 
+  :31    Method App\Events\MessageBroadcast::broadcastOn() should return array<int, Illuminate\Broadcasting\Channel> but returns  
+         array<int, string>.                                                                                                      
+         🪪  return.type                                                                                                          
+ ------ ------------------------------------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/Auth/AuthenticatedSessionController.php                                                              
+ ------ -------------------------------------------------------------------------------------------------------------------------- 
+  :19    Method App\Http\Controllers\Auth\AuthenticatedSessionController::create() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                                           
+         🪪  return.type                                                                                                           
+  :39    Call to an undefined method Illuminate\Contracts\Auth\Guard::logout().                                                    
+         🪪  method.notFound                                                                                                       
+ ------ -------------------------------------------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/Auth/ConfirmablePasswordController.php                                                            
+ ------ ----------------------------------------------------------------------------------------------------------------------- 
+  :19    Method App\Http\Controllers\Auth\ConfirmablePasswordController::show() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                                        
+         🪪  return.type                                                                                                        
+  :29    Access to an undefined property Illuminate\Http\Request::$password.                                                    
+         🪪  property.notFound                                                                                                  
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                   
+ ------ ----------------------------------------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/Auth/NewPasswordController.php                                                              
+ ------ ----------------------------------------------------------------------------------------------------------------- 
+  :23    Method App\Http\Controllers\Auth\NewPasswordController::create() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                                  
+         🪪  return.type                                                                                                  
+  :46    Access to an undefined property Illuminate\Http\Request::$password.                                              
+         🪪  property.notFound                                                                                            
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                             
+ ------ ----------------------------------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/Auth/PasswordResetLinkController.php                                                              
+ ------ ----------------------------------------------------------------------------------------------------------------------- 
+  :18    Method App\Http\Controllers\Auth\PasswordResetLinkController::create() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                                        
+         🪪  return.type                                                                                                        
+ ------ ----------------------------------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/Auth/RegisteredUserController.php                                                              
+ ------ -------------------------------------------------------------------------------------------------------------------- 
+  :22    Method App\Http\Controllers\Auth\RegisteredUserController::create() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                                     
+         🪪  return.type                                                                                                     
+  :38    Call to an undefined static method App\Models\User::create().                                                       
+         🪪  staticMethod.notFound                                                                                           
+  :39    Access to an undefined property Illuminate\Http\Request::$name.                                                     
+         🪪  property.notFound                                                                                               
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                
+  :40    Access to an undefined property Illuminate\Http\Request::$email.                                                    
+         🪪  property.notFound                                                                                               
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                
+  :41    Access to an undefined property Illuminate\Http\Request::$password.                                                 
+         🪪  property.notFound                                                                                               
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                
+ ------ -------------------------------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/ChannelController.php                                            
+ ------ -------------------------------------------------------------------------------------- 
+  :36    Call to an undefined static method App\Models\Channel::create().                      
+         🪪  staticMethod.notFound                                                             
+  :37    Access to an undefined property Illuminate\Http\Request::$name.                       
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  :38    Access to an undefined property Illuminate\Http\Request::$description.                
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  :58    Call to an undefined static method App\Models\Channel::findOrFail().                  
+         🪪  staticMethod.notFound                                                             
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/GroupController.php                                                                                  
+ ------ -------------------------------------------------------------------------------------------------------------------------- 
+  :15    Access to an undefined property Illuminate\Contracts\Auth\Authenticatable::$groups.                                       
+         🪪  property.notFound                                                                                                     
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                      
+  :37    Access to an undefined property Illuminate\Http\Request::$name.                                                           
+         🪪  property.notFound                                                                                                     
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                      
+  :37    Call to an undefined static method App\Models\Group::create().                                                            
+         🪪  staticMethod.notFound                                                                                                 
+  :44    Access to an undefined property Illuminate\Http\Request::$user_ids.                                                       
+         🪪  property.notFound                                                                                                     
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                      
+  :61    Access to an undefined property App\Models\Group|Illuminate\Database\Eloquent\Collection<int, App\Models\Group>::$users.  
+         🪪  property.notFound                                                                                                     
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                      
+  :70    Call to an undefined static method App\Models\Group::findOrFail().                                                        
+         🪪  staticMethod.notFound                                                                                                 
+ ------ -------------------------------------------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/GroupMessageController.php                                       
+ ------ -------------------------------------------------------------------------------------- 
+  :17    Call to an undefined static method App\Models\Group::findOrFail().                    
+         🪪  staticMethod.notFound                                                             
+  :30    Call to an undefined static method App\Models\Group::findOrFail().                    
+         🪪  staticMethod.notFound                                                             
+  :37    Call to an undefined static method App\Models\GroupMessage::create().                 
+         🪪  staticMethod.notFound                                                             
+  :40    Access to an undefined property Illuminate\Http\Request::$message.                    
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  :49    Call to an undefined method Illuminate\Contracts\Auth\Factory::user().                
+         🪪  method.notFound                                                                   
+  :53    Access to an undefined property App\Models\Group::$id.                                
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  :53    Access to an undefined property App\Models\GroupMessage::$group_id.                   
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/MessageController.php                                             
+ ------ --------------------------------------------------------------------------------------- 
+  :47    Call to an undefined static method App\Models\Message::create().                       
+         🪪  staticMethod.notFound                                                              
+  :49    Access to an undefined property Illuminate\Http\Request::$channel_id.                  
+         🪪  property.notFound                                                                  
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property   
+  :50    Access to protected property Illuminate\Http\Request::$content.                        
+         🪪  property.protected                                                                 
+  :60    Access to an undefined property App\Models\Message::$user_id.                          
+         🪪  property.notFound                                                                  
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property   
+  :60    Access to an undefined property Illuminate\Contracts\Auth\Authenticatable::$is_admin.  
+         🪪  property.notFound                                                                  
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property   
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ --------------------------------------------------------------------------------------- 
+  Line   app/Http/Controllers/PrivateMessagesController.php                                     
+ ------ --------------------------------------------------------------------------------------- 
+  :37    Call to an undefined static method App\Models\Message::create().                       
+         🪪  staticMethod.notFound                                                              
+  :62    Call to an undefined static method App\Models\Message::create().                       
+         🪪  staticMethod.notFound                                                              
+  :64    Access to an undefined property Illuminate\Http\Request::$channel_id.                  
+         🪪  property.notFound                                                                  
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property   
+  :65    Access to protected property Illuminate\Http\Request::$content.                        
+         🪪  property.protected                                                                 
+  :75    Access to an undefined property App\Models\Message::$user_id.                          
+         🪪  property.notFound                                                                  
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property   
+  :75    Access to an undefined property Illuminate\Contracts\Auth\Authenticatable::$is_admin.  
+         🪪  property.notFound                                                                  
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property   
+ ------ --------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------------ 
+  Line   app/Http/Controllers/ProfileController.php                                                            
+ ------ ------------------------------------------------------------------------------------------------------ 
+  :19    Method App\Http\Controllers\ProfileController::edit() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                       
+         🪪  return.type                                                                                       
+ ------ ------------------------------------------------------------------------------------------------------ 
+
+ ------ ---------------------------------------------------------------------- 
+  Line   app/Http/Controllers/ServerController.php                             
+ ------ ---------------------------------------------------------------------- 
+  :19    Call to an undefined static method App\Models\Channel::findOrFail().  
+         🪪  staticMethod.notFound                                             
+ ------ ---------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------ 
+  Line   app/Http/Controllers/UserController.php                                 
+ ------ ------------------------------------------------------------------------ 
+  :29    Call to an undefined method Illuminate\Contracts\Auth\Factory::user().  
+         🪪  method.notFound                                                     
+ ------ ------------------------------------------------------------------------ 
+
+ ------ ------------------------------------------------------------------------ 
+  Line   app/Http/Middleware/AdminMiddleware.php                                 
+ ------ ------------------------------------------------------------------------ 
+  :18    Call to an undefined method Illuminate\Contracts\Auth\Factory::user().  
+         🪪  method.notFound                                                     
+  :18    Call to an undefined method Illuminate\Contracts\Auth\Factory::user().  
+         🪪  method.notFound                                                     
+ ------ ------------------------------------------------------------------------ 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   app/Models/User.php                                                                   
+ ------ -------------------------------------------------------------------------------------- 
+  :32    Access to an undefined property App\Models\User::$is_admin.                           
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  :37    Access to an undefined property App\Models\User::$is_member.                          
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ ----------------------------------------------------------------------------------------------- 
+  Line   app/View/Components/AppLayout.php                                                              
+ ------ ----------------------------------------------------------------------------------------------- 
+  :15    Method App\View\Components\AppLayout::render() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                
+         🪪  return.type                                                                                
+ ------ ----------------------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------- 
+  Line   app/View/Components/GuestLayout.php                                                              
+ ------ ------------------------------------------------------------------------------------------------- 
+  :15    Method App\View\Components\GuestLayout::render() should return Illuminate\View\View but returns  
+         Illuminate\Contracts\View\View.                                                                  
+         🪪  return.type                                                                                  
+ ------ ------------------------------------------------------------------------------------------------- 
+
+ ------ --------------------------- 
+  Line   routes/console.php         
+ ------ --------------------------- 
+  :7     Undefined variable: $this  
+         🪪  variable.undefined     
+ ------ --------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  Line   tests/Feature/Auth/AuthenticationTest.php                                                                               
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  :6     Call to an undefined method PHPUnit\Framework\TestCase::get().                                                          
+         🪪  method.notFound                                                                                                     
+  :14    Call to an undefined method PHPUnit\Framework\TestCase::post().                                                         
+         🪪  method.notFound                                                                                                     
+  :15    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :19    Call to an undefined method PHPUnit\Framework\TestCase::assertAuthenticated().                                          
+         🪪  method.notFound                                                                                                     
+  :26    Call to an undefined method PHPUnit\Framework\TestCase::post().                                                         
+         🪪  method.notFound                                                                                                     
+  :27    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :31    Call to an undefined method PHPUnit\Framework\TestCase::assertGuest().                                                  
+         🪪  method.notFound                                                                                                     
+  :37    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                                                     
+         🪪  method.notFound                                                                                                     
+  :39    Call to an undefined method PHPUnit\Framework\TestCase::assertGuest().                                                  
+         🪪  method.notFound                                                                                                     
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+
+ ------ --------------------------------------------------------------------- 
+  Line   tests/Feature/Auth/PasswordConfirmationTest.php                      
+ ------ --------------------------------------------------------------------- 
+  :8     Call to an undefined method PHPUnit\Framework\TestCase::actingAs().  
+         🪪  method.notFound                                                  
+  :16    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().  
+         🪪  method.notFound                                                  
+  :27    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().  
+         🪪  method.notFound                                                  
+ ------ --------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  Line   tests/Feature/Auth/PasswordResetTest.php                                                                                
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  :8     Call to an undefined method PHPUnit\Framework\TestCase::get().                                                          
+         🪪  method.notFound                                                                                                     
+  :18    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :18    Call to an undefined method PHPUnit\Framework\TestCase::post().                                                         
+         🪪  method.notFound                                                                                                     
+  :28    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :28    Call to an undefined method PHPUnit\Framework\TestCase::post().                                                         
+         🪪  method.notFound                                                                                                     
+  :31    Call to an undefined method PHPUnit\Framework\TestCase::get().                                                          
+         🪪  method.notFound                                                                                                     
+  :44    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :44    Call to an undefined method PHPUnit\Framework\TestCase::post().                                                         
+         🪪  method.notFound                                                                                                     
+  :47    Call to an undefined method PHPUnit\Framework\TestCase::post().                                                         
+         🪪  method.notFound                                                                                                     
+  :49    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+
+ ------ -------------------------------------------------------------------------------------- 
+  Line   tests/Feature/Auth/PasswordUpdateTest.php                                             
+ ------ -------------------------------------------------------------------------------------- 
+  :9     Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                   
+         🪪  method.notFound                                                                   
+  :22    Access to an undefined property App\Models\User::$password.                           
+         🪪  property.notFound                                                                 
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property  
+  :28    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                   
+         🪪  method.notFound                                                                   
+ ------ -------------------------------------------------------------------------------------- 
+
+ ------ -------------------------------------------------------------------------------- 
+  Line   tests/Feature/Auth/RegistrationTest.php                                         
+ ------ -------------------------------------------------------------------------------- 
+  :4     Call to an undefined method PHPUnit\Framework\TestCase::get().                  
+         🪪  method.notFound                                                             
+  :10    Call to an undefined method PHPUnit\Framework\TestCase::post().                 
+         🪪  method.notFound                                                             
+  :17    Call to an undefined method PHPUnit\Framework\TestCase::assertAuthenticated().  
+         🪪  method.notFound                                                             
+ ------ -------------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  Line   tests/Feature/ChatAppFeatureTest.php                                                                                    
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  :24    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :40    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :76    Access to an undefined property Illuminate\Database\Eloquent\Collection<int,                                            
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::$id.                                            
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :79    Access to an undefined property Illuminate\Database\Eloquent\Collection<int,                                            
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::$id.                                            
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :80    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$id.     
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :90    Call to an undefined method Illuminate\Database\Eloquent\Collection<int,                                                
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::users().                                        
+         🪪  method.notFound                                                                                                     
+  :92    Access to an undefined property Illuminate\Database\Eloquent\Collection<int,                                            
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::$id.                                            
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :98    Access to an undefined property Illuminate\Database\Eloquent\Collection<int,                                            
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::$id.                                            
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :99    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$id.     
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :109   Call to an undefined method Illuminate\Database\Eloquent\Collection<int,                                                
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::users().                                        
+         🪪  method.notFound                                                                                                     
+  :111   Call to an undefined method Illuminate\Database\Eloquent\Collection<int,                                                
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::messages().                                     
+         🪪  method.notFound                                                                                                     
+  :112   Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$id.     
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :116   Access to an undefined property Illuminate\Database\Eloquent\Collection<int,                                            
+         Illuminate\Database\Eloquent\Model>|Illuminate\Database\Eloquent\Model::$id.                                            
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  Line   tests/Feature/ProfileTest.php                                                                                           
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+  :8     Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                                                     
+         🪪  method.notFound                                                                                                     
+  :18    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                                                     
+         🪪  method.notFound                                                                                                     
+  :31    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$name.   
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :32    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :33    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int,                            
+         App\Models\User>::$email_verified_at.                                                                                   
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :39    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                                                     
+         🪪  method.notFound                                                                                                     
+  :43    Access to an undefined property App\Models\User|Illuminate\Database\Eloquent\Collection<int, App\Models\User>::$email.  
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :50    Access to an undefined property App\Models\User::$email_verified_at.                                                    
+         🪪  property.notFound                                                                                                   
+         💡 Learn more: https://phpstan.org/blog/solving-phpstan-access-to-undefined-property                                    
+  :56    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                                                     
+         🪪  method.notFound                                                                                                     
+  :66    Call to an undefined method PHPUnit\Framework\TestCase::assertGuest().                                                  
+         🪪  method.notFound                                                                                                     
+  :73    Call to an undefined method PHPUnit\Framework\TestCase::actingAs().                                                     
+         🪪  method.notFound                                                                                                     
+ ------ ------------------------------------------------------------------------------------------------------------------------ 
+
+ ------ --------------------------- 
+  Line   tests/Pest.php             
+ ------ --------------------------- 
+  :30    Undefined variable: $this  
+         🪪  variable.undefined     
+ ------ --------------------------- 
+
+ [ERROR] Found 104 errors                                                                                               
+
